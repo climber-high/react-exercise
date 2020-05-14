@@ -11,6 +11,8 @@ import { getTodos } from './services'
 
 import { Home, Article, Users, NotFound, ArticleDetail } from './views'
 
+import { CartList } from './components'
+
 class App extends Component {
     constructor(props){
         super(props);
@@ -48,9 +50,9 @@ class App extends Component {
     }
 
     render() {
-        return (
+        return ( 
             <Fragment> 
-                <Button type="primary">123</Button>
+                {/* <Button type="primary">123</Button> */}
                 {/* {
                     <div dangerouslySetInnerHTML={{__html: this.state.article}} />
                 }
@@ -60,17 +62,17 @@ class App extends Component {
                 <TodoInput addTodo={this.addTodo} btnTxt="add"/>
                 <TodoList todos={this.state.todos} /> */}
 
-                <ul>
+                {/* <ul>
                     <li><Link to="/home">首页</Link></li>
                     <li><Link to="/article">文章</Link></li>
                     <li><Link to="/users">用户</Link></li>
                 </ul>
                 <Switch>
-                    <Route component={Home} path="/home" />
+                    <Route component={Home} path="/home" /> */}
                     {/* <Route  path="/home" render={(routeProps) => {
                         return <Home {...routeProps} title={123}/>
                     }} /> */}
-                    <Route component={Article} path="/article" exact />
+                    {/* <Route component={Article} path="/article" exact />
                     <Route component={ArticleDetail} path="/article/:id" />
                     <Route component={Users} path="/users" />
                     <Route component={NotFound} path="/404" />
@@ -80,7 +82,9 @@ class App extends Component {
                 
                 <br />
                 <Another name="666"/>
-                <br />
+                <br /> */}
+
+                <CartList />
             </Fragment>
         )
     }

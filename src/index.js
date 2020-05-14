@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Component } from 'react'
 import {render} from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { observer, Provider, inject } from "mobx-react";
+// import { observer, Provider, inject } from "mobx-react";
 // import { CounterProvider } from './counterStore'
 import {
     CountBtn,
@@ -9,7 +9,7 @@ import {
 } from './components'
 
 
-// import App from './App'
+import App from './App'
 
 // const Counter = () => {
 
@@ -31,23 +31,24 @@ import {
 //     )
 //   }
 
-import counterStore from './store'
-import Counter2 from './store/Counter2'
+//mobx
+// import counterStore from './store'
+// import Counter2 from './store/Counter2'
 
-@inject('counter')
-@observer
-class App extends Component {
-    render(){
-        console.log(this.props)
-        return (
-            <>
-                <CountBtn onClick={this.props.counter.decrement} type="decrement">-</CountBtn>
-                <Counter />
-                <CountBtn onClick={this.props.counter.increment} type="increment">+</CountBtn>
-            </>
-        )
-    }
-}
+// @inject('counter')
+// @observer
+// class App extends Component {
+//     render(){
+//         console.log(this.props)
+//         return (
+//             <>
+//                 <CountBtn onClick={this.props.counter.decrement} type="decrement">-</CountBtn>
+//                 <Counter />
+//                 <CountBtn onClick={this.props.counter.increment} type="increment">+</CountBtn>
+//             </>
+//         )
+//     }
+// }
 
 // import { Map, List, fromJS, updateIn, is } from 'immutable'
 // const state = {
@@ -69,17 +70,26 @@ class App extends Component {
 // const newImState = imState.setIn(['sexy'],'nan');
 // console.log(newImState.getIn(['sexy']));
 
+import { Provider } from 'react-redux'
+
+import store from './store.js'
+
 render(
     // <Router>
     //     <Route component={App} />
     // </Router>,
     // <Counter />,
-    // <CounterProvider>
+    // <CounterProvider>   //context
        // <App />
     // </CounterProvider>,
 
-    <Provider counter={counterStore} Counter2={Counter2}>
-        <App />
+    // <Provider counter={counterStore} Counter2={Counter2}>  //mobx
+    //     <App />
+    // </Provider>,
+
+    // <App store={store}/>,
+    <Provider store={store}>
+         <App />
     </Provider>,
     document.querySelector('#root')
 )
