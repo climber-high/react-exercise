@@ -19,23 +19,25 @@ export const decrement = (id) => {
 }
 
 export const incrementAsync = (id) => {
-    setTimeout(() => {
-        return {
-            type: actionType.CART_AMOUNT_INCREMENT,
-            payload: {
-                id
-            }
-        }
-    },2000)
+    return (dispatch) => {
+        setTimeout(() => {
+            dispatch({
+                type: actionType.CART_AMOUNT_INCREMENT,
+                payload: {
+                    id
+                }
+            })
+        },2000)
+    }
 }
 
-export const decrementAsync = (id) => {
+export const decrementAsync = id => dispatch => {
     setTimeout(() => {
-        return {
+        dispatch({
             type: actionType.CART_AMOUNT_DECREMENT,
             payload: {
                 id
             }
-        }
+        })
     },2000)
 }
