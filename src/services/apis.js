@@ -1,4 +1,5 @@
 export default{
     baseUrl : 'https://jsonplaceholder.typicode.com',
-    getTodo: '/todos'
+    getTodo: '/todos',
+    getPosts: '/posts'
 }

@@ -5,4 +5,5 @@ export {default as CountBtn} from './CountBtn'
 export {default as Counter} from './Counter'
 export {default as BackHome} from './BackHome'
 export {default as CartList} from './CartList/CartList'
+export {default as BlogList} from './BlogList/BlogList'
 

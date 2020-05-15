@@ -11,7 +11,7 @@ import { getTodos } from './services'
 
 import { Home, Article, Users, NotFound, ArticleDetail } from './views'
 
-import { CartList } from './components'
+import { CartList, BlogList } from './components'
 
 class App extends Component {
     constructor(props){
@@ -84,6 +84,7 @@ class App extends Component {
                 <Another name="666"/>
                 <br /> */}
 
+                {/* <BlogList /> */}
                 <CartList />
             </Fragment>
         )

@@ -9,3 +9,7 @@ const ajax = axios.create({
 export const getTodos = () => {
     return ajax.get(apis.getTodo)
 }
+
+export const getPosts = () => {
+    return ajax.get(apis.getPosts)
+}
