@@ -70,6 +70,7 @@ import App from './App'
 // const newImState = imState.setIn(['sexy'],'nan');
 // console.log(newImState.getIn(['sexy']));
 
+
 import { Provider } from 'react-redux'
 
 import store from './store.js'

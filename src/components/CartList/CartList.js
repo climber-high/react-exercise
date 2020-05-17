@@ -21,7 +21,6 @@ class CartList extends Component {
     // }
 
     render() {
-        console.log(this.props)
         return (
             <table>
                 <thead>
@@ -37,15 +36,15 @@ class CartList extends Component {
                     {
                         this.props.cartList.map(item => {
                             return (
-                                <tr key={item.id}>
-                                    <td>{item.id}</td>
-                                    <td>{item.title}</td>
-                                    <td>{item.price}</td>
+                                <tr key={item.getIn(['id'])}>
+                                    <td>{item.getIn(['id'])}</td>
+                                    <td>{item.getIn(['title'])}</td>
+                                    <td>{item.getIn(['price'])}</td>
                                     <td>
-                                        <button onClick={this.props.decrementAsync.bind(this,item.id)}>等一下减</button>
-                                        <button onClick={this.props.decrement.bind(this,item.id)}>-</button>
-                                        <span>{item.amount}</span>
-                                        <button onClick={this.props.increment.bind(this,item.id)}>+</button>
+                                        <button onClick={this.props.decrementAsync.bind(this,item.getIn(['id']))}>等一下减</button>
+                                        <button onClick={this.props.decrement.bind(this,item.getIn(['id']))}>-</button>
+                                        <span>{item.getIn(['amount'])}</span>
+                                        <button onClick={this.props.increment.bind(this,item.getIn(['id']))}>+</button>
                                     </td>
                                     <td></td>
                                 </tr>
@@ -61,8 +60,9 @@ class CartList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        cartList: state.cart
+        cartList: state.getIn(['cart'])
     }
 }
 
 export default connect(mapStateToProps,{ increment, decrement, incrementAsync, decrementAsync })(CartList)
+
